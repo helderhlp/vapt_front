@@ -1,0 +1,92 @@
+@import '_reset.scss';
+@import '_helpers.scss';
+@import '_colors.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Quicksand&family=Roboto:wght@400;700&display=swap');
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  color: $body-color;
+  font-size: 1.4rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: $white;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: $white;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+label {
+  font-size: 1.2rem;
+  display: block;
+}
+
+button {
+  border: none;
+  height: 3.4rem;
+  padding-left: 2.2rem;
+  padding-right: 2.2rem;
+  border-radius: 1rem;
+  font-style: italic;
+  background-color: #707070;
+  color: $white;
+  cursor: pointer;
+}
+
+select {
+  border-radius: 1rem;
+  border: 1px solid #707070;
+  color: #707070;
+  padding: 0.85rem 0 1.05rem 1.2rem;
+}
+
+hr {
+  margin: 0;
+  color: #707070;
+  max-width: 100rem;
+  margin: auto;
+}
+
+.arrow {
+  border: solid $white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left: 2px;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin-bottom: 2px;
+}
+
+@media (max-width: 992px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
