@@ -2,7 +2,7 @@
   <div class="especial-offers">
     <h2 class="especial-offers-title">Ofertas Especiais</h2>
     <Carousel :breakpoints="breakpoints">
-      <Slide v-for="data in specialOffers" :key="data.id">
+      <Slide v-for="data in travels" :key="data.id">
         <special-offer-card :data="data" />
       </Slide>
 
@@ -15,13 +15,18 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import SpecialOfferCard from './SpecialOfferCard.vue'
-import FetchService from '@/services/FetchService.js'
 import { useUtils } from '@/composables/useUtils'
 
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
+
+const props = defineProps({
+  travels: {
+    type: Object,
+    required: true
+  }
+})
 
 const { isMobileScreen } = useUtils()
 
@@ -40,20 +45,6 @@ const breakpoints = {
     itemsToShow: 4
   }
 }
-
-const specialOffers = ref([])
-
-const fetchSpecialOffers = async () => {
-  try {
-    const { data } = await FetchService.getSpecialOffers()
-
-    specialOffers.value = data.data
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-fetchSpecialOffers()
 </script>
 
 <style lang="scss" scoped>

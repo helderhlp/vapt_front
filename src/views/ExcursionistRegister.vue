@@ -206,8 +206,8 @@
       </div>
       <p class="register-form-link">
         Clicando em "Cadastrar" você aceita nossos
-        <router-link to="/termos-condicoes">termos de uso</router-link> e
-        <router-link to="/politica-privacidade">política de privacidade</router-link>
+        <router-link :to="{ name: 'terms-conditions' }">termos de uso</router-link> e
+        <router-link :to="{ name: 'privacy-policy' }">política de privacidade</router-link>
       </p>
       <div class="d-flex justify-content-end">
         <button class="button-primary" @click="registerExcursionist">CADASTRAR</button>
@@ -218,7 +218,11 @@
 
 <script setup>
 import { reactive } from 'vue'
+import { useToastStore } from '@/stores/toastStore'
+
 import FetchService from '@/services/FetchService.js'
+
+const toastStore = useToastStore()
 
 const registerForm = reactive({
   id: '1',
@@ -258,11 +262,19 @@ const registerForm = reactive({
 
 const registerExcursionist = async () => {
   try {
-    const response = await FetchService.registerExcursionist(registerForm)
+    await FetchService.registerExcursionist(registerForm)
 
-    console.log(response)
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Excursionista cadastrado com sucesso!',
+      kind: 'success'
+    })
   } catch (error) {
-    console.log(error)
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Erro ao cadastrar excursionista',
+      kind: 'success'
+    })
   }
 }
 </script>

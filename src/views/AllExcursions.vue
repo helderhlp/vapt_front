@@ -37,11 +37,14 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useToastStore } from '@/stores/toastStore'
 import SearchBar from '@/components/SearchBar.vue'
 import SpecialOfferCard from '@/components/SpecialOfferCard.vue'
 import PromotionsRegisterForm from '@/components/PromotionsRegisterForm.vue'
 import EmptySearchForm from '@/components/EmptySearchForm.vue'
 import FetchService from '@/services/FetchService.js'
+
+const toastStore = useToastStore()
 
 const specialOffers = ref([])
 
@@ -51,7 +54,11 @@ const fetchSpecialOffers = async () => {
 
     specialOffers.value = data.data
   } catch (error) {
-    console.log(error)
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Erro inesperado',
+      kind: 'danger'
+    })
   }
 }
 

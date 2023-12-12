@@ -4,19 +4,23 @@
       <div class="institutional">
         <h3>Institucional</h3>
         <ul>
-          <li><router-link to="/sobre"> Sobre o Vaptvou </router-link></li>
+          <li><router-link :to="{ name: 'about' }"> Sobre o Vaptvou </router-link></li>
           <li><router-link to="/"> Informações Coronavírus </router-link></li>
         </ul>
       </div>
       <div class="politics-conditions">
         <h3>Políticas e Condições</h3>
         <ul>
-          <li><router-link to="/politica-privacidade"> Política de privacidade </router-link></li>
           <li>
-            <router-link to="/termos-condicoes"> Termos e condições de uso Excursões </router-link>
+            <router-link :to="{ name: 'privacy-policy' }"> Política de privacidade </router-link>
           </li>
           <li>
-            <router-link to="/politicas-normas-seguranca">
+            <router-link :to="{ name: 'terms-conditions' }">
+              Termos e condições de uso Excursões
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'security-policies-standards' }">
               Política e normas de segurança
             </router-link>
           </li>
@@ -25,13 +29,29 @@
       <div class="site">
         <h3>Site</h3>
         <ul>
-          <li><router-link to="/"> Destinos </router-link></li>
-          <li><router-link to="/"> Excursões</router-link></li>
-          <li><router-link to="/"> Ofertas Especiais</router-link></li>
-          <li><router-link to="/"> Todas as Excursões</router-link></li>
-          <li><router-link to="/"> Contato</router-link></li>
-          <li><router-link to="/"> Cadastrar como excursionista</router-link></li>
-          <li><router-link to="/"> Minha Conta / Cadastra-se</router-link></li>
+          <li>
+            <router-link :to="{ name: 'destinies' }"> Destinos </router-link>
+          </li>
+          <!-- <li>
+            <router-link :to="{ name: '' }"> Excursões</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: '' }">
+              Ofertas Especiais</router-link
+            >
+          </li> -->
+          <li>
+            <router-link :to="{ name: 'all-excursions' }"> Todas as Excursões</router-link>
+          </li>
+          <li><router-link :to="{ name: 'contact' }"> Contato</router-link></li>
+          <li>
+            <router-link :to="{ name: 'excursionist-register' }">
+              Cadastrar como excursionista</router-link
+            >
+          </li>
+          <li>
+            <router-link :to="{ name: 'login' }"> Minha Conta / Cadastra-se</router-link>
+          </li>
         </ul>
       </div>
     </footer>

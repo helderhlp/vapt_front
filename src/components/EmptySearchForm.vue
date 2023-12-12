@@ -7,23 +7,60 @@
     </p>
 
     <div class="contact-form-fields">
-      <input class="default-input" type="text" placeholder="Cidade*" />
-      <input class="default-input" type="text" placeholder="Destino*" />
-      <input class="default-input" type="text" placeholder="Nome*" />
-      <input class="default-input" type="text" placeholder="Sobrenome*" />
-      <input class="default-input" type="email" placeholder="E-mail*" />
-      <input class="default-input" type="tel" placeholder="Celular*" />
+      <input v-model="form.cidade" class="default-input" type="text" placeholder="Cidade*" />
+      <input v-model="form.destino" class="default-input" type="text" placeholder="Destino*" />
+      <input v-model="form.nome" class="default-input" type="text" placeholder="Nome*" />
+      <input v-model="form.sobrenome" class="default-input" type="text" placeholder="Sobrenome*" />
+      <input v-model="form.email" class="default-input" type="email" placeholder="E-mail*" />
+      <input v-model="form.telefone" class="default-input" type="tel" placeholder="Celular*" />
 
       <div class="contact-form-message">
-        <textarea placeholder="Mensagem:" rows="5"></textarea>
+        <textarea v-model="form.mensagem" placeholder="Mensagem:" rows="5"></textarea>
       </div>
 
       <div class="d-flex justify-content-end w-100 contact-form-button">
-        <button class="button-primary w-50">Enviar</button>
+        <button class="button-primary w-50" @click="sendSuggestion">Enviar</button>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+import { reactive } from 'vue'
+import { useToastStore } from '@/stores/toastStore'
+import FetchService from '@/services/FetchService.js'
+
+const toastStore = useToastStore()
+
+const form = reactive({
+  id: '',
+  destino: '',
+  cidade: '',
+  nome: '',
+  sobrenome: '',
+  email: '',
+  telefone: '',
+  mensagem: ''
+})
+
+const sendSuggestion = async () => {
+  try {
+    await FetchService.postSuggestion(form)
+
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Sugestão enviada com sucesso!',
+      kind: 'success'
+    })
+  } catch (error) {
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Erro ao enviar sugestão',
+      kind: 'danger'
+    })
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .contact-form {

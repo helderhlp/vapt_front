@@ -8,15 +8,19 @@
               <h1 class="excursion-text-title">{{ excursion.titulo }}</h1>
               <h2 class="excursion-text-subtitle">{{ excursion.subtitulo }}</h2>
               <!-- <p class="excursion-text-exit-dates">{{ excursion.dates }}</p> -->
-              <button class="button-secondary">SAIBA MAIS</button>
+              <button class="button-secondary">
+                <router-link :to="excursion.link">SAIBA MAIS</router-link>
+              </button>
             </div>
 
             <div class="excursion-card">
               <p class="excursion-card-title">A partir de</p>
               <p class="excursion-card-value">{{ convertToReal(excursion.promocao_preco) }}</p>
               <button class="button-secondary excursion-card-button">
-                <p class="excursion-card-button-text">é pra lá que eu vou</p>
-                <p>CLIQUE AQUI PARA VER AS OPÇÕES</p>
+                <router-link :to="{ name: 'city-detail', params: { id: excursion.id } }">
+                  <p class="excursion-card-button-text">é pra lá que eu vou</p>
+                  <p>CLIQUE AQUI PARA VER AS OPÇÕES</p></router-link
+                >
               </button>
               <!-- <p class="excursion-card-reservation">
                 Reservas até o dia {{ excursion.reservationDateLimit }}
@@ -38,12 +42,14 @@
 <script setup>
 import { ref, watch } from 'vue'
 import SearchBar from './SearchBar.vue'
-
+import { useToastStore } from '@/stores/toastStore'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
 import { useUtils } from '@/composables/useUtils.js'
 import FetchService from '@/services/FetchService.js'
+
+const toastStore = useToastStore()
 
 const { convertToReal, isMobileScreen } = useUtils()
 
@@ -59,7 +65,11 @@ const fetchBanners = async () => {
 
     currentBackgroundImage.value = banners.value[0].imagem
   } catch (error) {
-    console.log(error)
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Erro inesperado',
+      kind: 'danger'
+    })
   }
 }
 
@@ -144,6 +154,13 @@ watch(carouselData, (newValue) => {
   &-reservation {
     font-size: 1.2rem;
     font-style: italic;
+  }
+}
+
+button {
+  a {
+    color: $white;
+    text-decoration: none;
   }
 }
 

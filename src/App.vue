@@ -3,6 +3,8 @@
     <!-- <VitePwaManifest /> -->
     <TheHeader />
 
+    <the-toast v-if="toastInfo.showToast" :message="toastInfo.message" :kind="toastInfo.kind" />
+
     <router-view />
 
     <TheFooter />
@@ -10,11 +12,18 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useToastStore } from '@/stores/toastStore'
 import TheHeader from '@/components/TheHeader.vue'
 import TheFooter from '@/components/TheFooter.vue'
+import TheToast from '@/components/TheToast.vue'
 import { useUtils } from '@/composables/useUtils'
 
 const { isMobileScreen } = useUtils()
+
+const toastStore = useToastStore()
+
+const toastInfo = computed(() => toastStore.toastInfo)
 </script>
 
 <style lang="scss" scoped>

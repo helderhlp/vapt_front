@@ -44,6 +44,7 @@ const router = createRouter({
     {
       path: '/:id(\\d+)',
       name: 'city-detail',
+      props: true,
       component: CityDetail
     },
     {

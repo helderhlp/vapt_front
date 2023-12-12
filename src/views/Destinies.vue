@@ -17,7 +17,7 @@
 
   <excursions-and-destinations :category="selectedCategory" />
 
-  <most-purchased-excursions />
+  <!-- <most-purchased-excursions /> -->
 
   <promotions-register-form />
 
@@ -28,11 +28,14 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useToastStore } from '@/stores/toastStore'
 import ExcursionsAndDestinations from '@/components/ExcursionsAndDestinations.vue'
 import MostPurchasedExcursions from '@/components/MostPurchasedExcursions.vue'
 import PromotionsRegisterForm from '@/components/PromotionsRegisterForm.vue'
 import EmptySearchForm from '@/components/EmptySearchForm.vue'
 import FetchService from '@/services/FetchService.js'
+
+const toastStore = useToastStore()
 
 const categories = ref([])
 const selectedCategory = ref('')
@@ -43,7 +46,11 @@ const fetchCategories = async () => {
 
     categories.value = data.data
   } catch (error) {
-    console.log(error)
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Erro inesperado',
+      kind: 'danger'
+    })
   }
 }
 

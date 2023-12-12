@@ -7,6 +7,15 @@ const FetchService = {
   getSpecialOffers() {
     return ApiClient.get('/viagens', { params: { ofertas: '1' } })
   },
+  getTravel(id) {
+    return ApiClient.get(`/viagens/${id}`)
+  },
+  getTravels(id) {
+    return ApiClient.get('/viagens', { params: { destino: id } })
+  },
+  getDestiny(id) {
+    return ApiClient.get(`/destinos/${id}`)
+  },
   getDestinations(category) {
     return ApiClient.get('/destinos', { params: { categoria: category } })
   },
@@ -25,6 +34,12 @@ const FetchService = {
   getDestinationsCategories() {
     return ApiClient.get('/destinos/categorias')
   },
+  postRating(body) {
+    return ApiClient.post('/comentarios', body)
+  },
+  postSuggestion(body) {
+    return ApiClient.post('/destinos/sugestoes', body)
+  }
 }
 
 export default FetchService

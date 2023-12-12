@@ -79,8 +79,8 @@
         </select>
         <p class="mt-2 mb-2">
           Clicando em "Cadastrar" você aceita nossos
-          <router-link to="/termos-condicoes">termos de uso</router-link> e
-          <router-link to="/politica-privacidade">política de privacidade</router-link>
+          <router-link :to="{ name: 'terms-conditions' }">termos de uso</router-link> e
+          <router-link :to="{ name: 'privacy-policy' }">política de privacidade</router-link>
         </p>
         <button class="button-secondary excursion-card-button w-100">
           <p class="excursion-card-button-text">é pra lá que eu vou</p>

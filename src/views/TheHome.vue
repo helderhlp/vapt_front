@@ -4,9 +4,11 @@
 
     <search-bar v-if="isMobileScreen" class="search-bar" />
 
-    <special-offer-list />
+    <special-offer-list :travels="specialOffers" />
 
-    <most-purchased-excursions class="most-purchased-excursions" />
+    <div class="most-purchased-excursions">
+      <!-- <most-purchased-excursions /> -->
+    </div>
 
     <div class="excursions-and-destinations">
       <h2 class="excursions-and-destinations-title">Excursões e Destinos</h2>
@@ -20,6 +22,9 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useToastStore } from '@/stores/toastStore'
+import FetchService from '@/services/FetchService.js'
 import ExcursionCarousels from '@/components/ExcursionCarousels.vue'
 import SearchBar from '@/components/SearchBar.vue'
 import SpecialOfferList from '@/components/SpecialOfferList.vue'
@@ -30,7 +35,27 @@ import ExcursionInfo from '@/components/ExcursionInfo.vue'
 
 import { useUtils } from '@/composables/useUtils'
 
+const toastStore = useToastStore()
+
 const { isMobileScreen } = useUtils()
+
+const specialOffers = ref([])
+
+const fetchSpecialOffers = async () => {
+  try {
+    const { data } = await FetchService.getSpecialOffers()
+
+    specialOffers.value = data.data
+  } catch (error) {
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Erro inesperado',
+      kind: 'danger'
+    })
+  }
+}
+
+fetchSpecialOffers()
 </script>
 
 <style lang="scss" scoped>

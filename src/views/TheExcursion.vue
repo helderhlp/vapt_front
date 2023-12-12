@@ -3,8 +3,8 @@
     <div class="city-excursion">
       <div class="city-excursion-header">
         <div>
-          <h1 class="city-excursion-title">APARECIDA DO NORTE</h1>
-          <h2 class="city-excursion-subtitle">Santuário Nacional Nossa Senhora Aparecida</h2>
+          <h1 class="city-excursion-title">{{ travels[0].titulo }}</h1>
+          <h2 class="city-excursion-subtitle">{{ travels[0].subtitulo }}</h2>
         </div>
       </div>
     </div>
@@ -16,13 +16,13 @@
         </select>
       </div>
 
-      <special-offer-list v-if="isMobileScreen" />
+      <special-offer-list :travels="travels" v-if="isMobileScreen" />
 
       <div v-else class="special-offers-cards">
-        <special-offer-card v-for="data in specialOffers" :key="data.id" :data="data" />
+        <special-offer-card v-for="data in travels" :key="data.id" :data="data" />
       </div>
     </div>
-    <most-purchased-excursions />
+    <!-- <most-purchased-excursions /> -->
     <promotions-register-form />
     <hr />
     <empty-search-form />
@@ -31,6 +31,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useToastStore } from '@/stores/toastStore'
 import FetchService from '@/services/FetchService.js'
 import EmptySearchForm from '@/components/EmptySearchForm.vue'
 import SpecialOfferList from '@/components/SpecialOfferList.vue'
@@ -40,21 +41,34 @@ import PromotionsRegisterForm from '@/components/PromotionsRegisterForm.vue'
 
 import { useUtils } from '@/composables/useUtils'
 
+const toastStore = useToastStore()
+
+const props = defineProps({
+  id: {
+    type: String,
+    required: true
+  }
+})
+
 const { isMobileScreen } = useUtils()
 
-const specialOffers = ref([])
+const travels = ref([])
 
-const fetchSpecialOffers = async () => {
+const fetchTravels = async () => {
   try {
-    const { data } = await FetchService.getSpecialOffers()
+    const { data } = await FetchService.getTravels(props.id)
 
-    specialOffers.value = data.data
+    travels.value = data.data
   } catch (error) {
-    console.log(error)
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Erro inesperado',
+      kind: 'danger'
+    })
   }
 }
 
-fetchSpecialOffers()
+fetchTravels()
 </script>
 
 <style lang="scss" scoped>

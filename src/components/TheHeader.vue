@@ -2,10 +2,10 @@
   <header>
     <nav v-if="!isMobileScreen" class="menu">
       <ul class="d-flex justify-content-center gap-7">
-        <li><router-link to="/"> Vaptou </router-link></li>
-        <li><router-link to="/destinos"> Destinos </router-link></li>
-        <li><router-link to="/todas-excursoes"> Todas Excursões </router-link></li>
-        <li><router-link to="/contato"> Contato </router-link></li>
+        <li><router-link :to="{ name: 'home' }"> Vaptou </router-link></li>
+        <li><router-link :to="{ name: 'destinies' }"> Destinos </router-link></li>
+        <li><router-link :to="{ name: 'all-excursions' }"> Todas Excursões </router-link></li>
+        <li><router-link :to="{ name: 'contact' }"> Contato </router-link></li>
       </ul>
     </nav>
     <nav v-else class="mobile-menu">
@@ -14,14 +14,16 @@
       </div>
 
       <ul v-if="isMenuOpen" class="mobile-menu-links">
-        <li><router-link to="/destinos"> Destinos </router-link></li>
-        <li><router-link to="/todas-excursoes"> Todas Excursões </router-link></li>
-        <li><router-link to="/contato"> Contato </router-link></li>
+        <li><router-link :to="{ name: 'destinies' }"> Destinos </router-link></li>
+        <li><router-link :to="{ name: 'all-excursions' }"> Todas Excursões </router-link></li>
+        <li><router-link :to="{ name: 'contact' }"> Contato </router-link></li>
         <li>
-          <router-link to="/cadastro-excursionista"> Cadastrar como Excursionista </router-link>
+          <router-link :to="{ name: 'excursionist-register' }">
+            Cadastrar como Excursionista
+          </router-link>
         </li>
-        <li><router-link to="/login"> Entrar </router-link></li>
-        <li><router-link to="/login"> Cadastre-se </router-link></li>
+        <li><router-link :to="{ name: 'login' }"> Entrar </router-link></li>
+        <li><router-link :to="{ name: 'login' }"> Cadastre-se </router-link></li>
       </ul>
 
       <div v-if="isMenuOpen" class="mobile-menu-close-icon">
@@ -30,7 +32,9 @@
     </nav>
     <div class="actions-bar d-flex align-items-center justify-content-between">
       <div class="search-bar d-flex align-items-center justify-content-between">
-        <router-link to="/"> <img src="@/assets/images/logo.png" alt="Logo Vaptou" /> </router-link>
+        <router-link :to="{ name: 'home' }">
+          <img src="@/assets/images/logo.png" alt="Logo Vaptou" />
+        </router-link>
 
         <!-- <input
           v-model="city"
@@ -45,7 +49,9 @@
           <div class="d-flex align-items-center gap-1">
             <img src="@/assets/images/user-tag.png" />
             <p>
-              <router-link to="/cadastro-excursionista"> Cadastrar como Excursionista </router-link>
+              <router-link :to="{ name: 'excursionist-register' }">
+                Cadastrar como Excursionista
+              </router-link>
             </p>
           </div>
         </button>
@@ -65,8 +71,8 @@
           </div>
         </button>
         <div v-if="isDropdownOpen" class="actions-bar-buttons-account-dropdown">
-          <p><router-link to="/login"> Entrar </router-link></p>
-          <p><router-link to="/login"> Cadastre-se </router-link></p>
+          <p><router-link :to="{ name: 'login' }"> Entrar </router-link></p>
+          <p><router-link :to="{ name: 'login' }"> Cadastre-se </router-link></p>
         </div>
       </div>
     </div>
@@ -95,7 +101,7 @@ const toogleMenu = () => {
 }
 
 router.beforeResolve(() => {
-  isMenuOpen.value = false
+  toogleMenu()
 })
 </script>
 

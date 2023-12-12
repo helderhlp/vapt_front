@@ -74,7 +74,7 @@
           </div>
 
           <p class="text-center mt-1">
-            <router-link to="termos-condicoes">Ler Termos de Uso</router-link>
+            <router-link :to="{ name: 'terms-conditions' }">Ler Termos de Uso</router-link>
           </p>
         </div>
       </div>

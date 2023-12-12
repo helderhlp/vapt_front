@@ -18,10 +18,13 @@
 <script setup>
 import { ref, watch } from 'vue'
 import FetchService from '@/services/FetchService.js'
+import { useToastStore } from '@/stores/toastStore'
 import ExcursionsAndDestinationsCard from './ExcursionsAndDestinationsCard.vue'
 
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
+
+const toastStore = useToastStore()
 
 const props = defineProps({
   showCarousel: {
@@ -42,7 +45,11 @@ const fetchDestinations = async () => {
 
     destinations.value = data.data
   } catch (error) {
-    console.log(error)
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Erro inesperado',
+      kind: 'danger'
+    })
   }
 }
 

@@ -2,6 +2,7 @@
   <div
     class="excursions-and-destinations-card"
     :class="{ 'w-100': isMobileScreen && route.path !== '/destinos' }"
+    @click="goToDestiny"
   >
     <p class="excursions-and-destinations-card-label">A partir de</p>
     <p class="excursions-and-destinations-card-value">{{ convertToReal(data.preco_min) }}</p>
@@ -16,7 +17,7 @@ import { useUtils } from '@/composables/useUtils.js'
 
 const route = useRouter()
 
-defineProps({
+const props = defineProps({
   data: {
     type: Object,
     required: true
@@ -24,6 +25,10 @@ defineProps({
 })
 
 const { convertToReal, isMobileScreen } = useUtils()
+
+const goToDestiny = () => {
+  route.push({ name: 'city-detail', params: { id: props.data.id } })
+}
 </script>
 
 <style lang="scss" scoped>
@@ -35,6 +40,11 @@ const { convertToReal, isMobileScreen } = useUtils()
     color: $white;
     font-weight: 600;
     padding: 20rem 2.5rem 2rem 2.5rem;
+
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
 
     &-label {
       margin-bottom: 0.8rem;

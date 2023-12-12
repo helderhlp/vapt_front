@@ -38,8 +38,10 @@
 
 <script setup>
 import { reactive } from 'vue'
-
+import { useToastStore } from '@/stores/toastStore'
 import FetchService from '@/services/FetchService.js'
+
+const toastStore = useToastStore()
 
 const contactForm = reactive({
   id: '',
@@ -52,11 +54,19 @@ const contactForm = reactive({
 
 const sendContactForm = async () => {
   try {
-    const response = await FetchService.postContact(contactForm)
+    await FetchService.postContact(contactForm)
 
-    console.log(response)
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Contato enviado com sucesso!',
+      kind: 'success'
+    })
   } catch (error) {
-    console.log(error)
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Erro ao enviar contato',
+      kind: 'danger'
+    })
   }
 }
 </script>

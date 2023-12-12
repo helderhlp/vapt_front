@@ -24,8 +24,10 @@
 
 <script setup>
 import { reactive } from 'vue'
-
+import { useToastStore } from '@/stores/toastStore'
 import FetchService from '@/services/FetchService.js'
+
+const toastStore = useToastStore()
 
 const form = reactive({
   id: '',
@@ -35,11 +37,19 @@ const form = reactive({
 
 const subscribeNewsletter = async () => {
   try {
-    const response = await FetchService.postNewsletter(form)
+    await FetchService.postNewsletter(form)
 
-    console.log(response)
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Newsletter assinado com sucesso!',
+      kind: 'success'
+    })
   } catch (error) {
-    console.log(error)
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Erro ao assinar newsletter',
+      kind: 'danger'
+    })
   }
 }
 </script>

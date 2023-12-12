@@ -3,25 +3,25 @@
     <div class="city-excursion">
       <div class="city-excursion-header">
         <div>
-          <h1 class="city-excursion-title">APARECIDA DO NORTE</h1>
-          <h2 class="city-excursion-subtitle">Santuário Nacional Nossa Senhora Aparecida</h2>
+          <h1 class="city-excursion-title">{{ cityInfoData.titulo }}</h1>
+          <h2 class="city-excursion-subtitle">{{ cityInfoData.subtitulo }}</h2>
         </div>
         <div class="excursion-card">
           <p class="excursion-card-title">A partir de</p>
-          <p class="excursion-card-value">R$ 350,00</p>
+          <p class="excursion-card-value">{{ convertToReal(cityInfoData.valor) }}</p>
           <button class="button-secondary excursion-card-button">
             <p class="excursion-card-button-text">é pra lá que eu vou</p>
             <p>CLIQUE AQUI PARA VER AS OPÇÕES</p>
           </button>
-          <p class="excursion-card-reservation">Reservas até o dia 05 de Janeiro</p>
+          <!-- <p class="excursion-card-reservation">Reservas até o dia 05 de Janeiro</p> -->
         </div>
       </div>
     </div>
     <div class="city-info">
-      <city-info />
+      <city-info :data="cityInfoData" />
     </div>
 
-    <most-purchased-excursions />
+    <!-- <most-purchased-excursions /> -->
     <promotions-register-form />
 
     <hr />
@@ -31,10 +31,43 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useUtils } from '@/composables/useUtils'
+import FetchService from '@/services/FetchService.js'
+import { useToastStore } from '@/stores/toastStore'
 import CityInfo from '@/components/CityInfo.vue'
 import MostPurchasedExcursions from '@/components/MostPurchasedExcursions.vue'
 import PromotionsRegisterForm from '@/components/PromotionsRegisterForm.vue'
 import EmptySearchForm from '@/components/EmptySearchForm.vue'
+
+const toastStore = useToastStore()
+
+const { convertToReal } = useUtils()
+
+const props = defineProps({
+  id: {
+    type: String,
+    required: true
+  }
+})
+
+const cityInfoData = ref({})
+
+const fetchTravels = async () => {
+  try {
+    const { data } = await FetchService.getDestiny(props.id)
+
+    cityInfoData.value = data
+  } catch (error) {
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Erro inesperado',
+      kind: 'danger'
+    })
+  }
+}
+
+fetchTravels()
 </script>
 
 <style lang="scss" scoped>

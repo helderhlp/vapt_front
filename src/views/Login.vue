@@ -24,7 +24,7 @@
         <div class="d-flex justify-content-end">
           <div class="login-form-submit">
             <button class="button-primary" @click="login">ENTRAR</button>
-            <nuxt-link>Esqueci a senha</nuxt-link>
+            <router-link>Esqueci a senha</router-link>
           </div>
         </div>
       </div>
@@ -51,14 +51,14 @@
         <div class="d-flex justify-content-end">
           <p class="register-form-link">
             Clicando em "Cadastrar" você aceita nossos
-            <nuxt-link to="/termos-condicoes">termos de uso</nuxt-link> e
-            <nuxt-link to="/politica-privacidade">política de privacidade</nuxt-link>
+            <router-link :to="{ name: 'terms-conditions' }">termos de uso</router-link> e
+            <router-link :to="{ name: 'privacy-policy' }">política de privacidade</router-link>
           </p>
         </div>
 
         <div class="d-flex justify-content-end">
           <button class="button-primary">
-            <nuxt-link to="/perfil">CADASTRAR</nuxt-link>
+            <router-link :to="{ name: 'profile' }">CADASTRAR</router-link>
           </button>
         </div>
       </div>
@@ -68,7 +68,10 @@
 
 <script setup>
 import { reactive } from 'vue'
+import { useToastStore } from '@/stores/toastStore'
 import FetchService from '@/services/FetchService.js'
+
+const toastStore = useToastStore()
 
 const loginForm = reactive({
   login: '',
@@ -81,7 +84,11 @@ const login = async () => {
 
     console.log(response)
   } catch (error) {
-    console.log(error)
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Erro inesperado',
+      kind: 'danger'
+    })
   }
 }
 </script>

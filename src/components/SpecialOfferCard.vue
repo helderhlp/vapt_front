@@ -2,22 +2,22 @@
   <div class="card" :style="isMobileScreen ? 'width: 34rem' : 'width: 22rem'">
     <div class="card-header">
       <p class="card-header-date">{{ formattedDate }}</p>
-      <p class="card-header-promotion">PROMOÇÃO IMPERDÍVEL</p>
+      <!-- <p class="card-header-promotion">PROMOÇÃO IMPERDÍVEL</p> -->
+      <p class="card-header-new">NOVO</p>
       <!-- <div v-if="data.discount" class="card-header-discount">
         <p>{{ data.discount }}%</p>
         <p>OFF</p>
       </div> -->
       <div class="card-header-button">
-        <router-link to="/1"> SAIBA MAIS </router-link>
+        <router-link to="excursao/1/informacoes"> SAIBA MAIS </router-link>
       </div>
     </div>
     <div class="card-body">
-      <!-- <p class="card-body-place d-flex justify-content-between align-items-center">
-        {{ data.place }}<img src="@/assets/images/bus-icon.png" />
+      <p class="card-body-place d-flex justify-content-between align-items-center">
+        {{ data.titulo }}<img src="@/assets/images/bus-icon.png" />
       </p>
-      <p class="card-body-city">{{ data.city }}/{{ data.state }}</p>
-      <p class="card-body-excursiondate">{{ data.excursionDate }}</p>
-      <p class="card-body-departure">{{ data.departure }}</p> -->
+      <p class="card-body-city">{{ data.subtitulo }}</p>
+      <p class="card-body-departure">{{ data.ponto_origem }}</p>
       <p class="card-body-value d-flex justify-content-between align-items-center">
         {{ convertToReal(data.valor) }}<img src="@/assets/images/share-icon.png" />
       </p>

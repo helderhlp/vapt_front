@@ -3,69 +3,72 @@
     <div class="city-excursion">
       <div class="city-excursion-header">
         <div class="city-excursion-name">
-          <h1 class="city-excursion-title">APARECIDA DO NORTE</h1>
-          <h2 class="city-excursion-subtitle">Santuário Nacional Nossa Senhora Aparecida</h2>
+          <h1 class="city-excursion-title">{{ cityInfoData.titulo }}</h1>
+          <h2 class="city-excursion-subtitle">{{ cityInfoData.subtitulo }}</h2>
         </div>
+
         <div class="city-excursion-date">
-          <h2>25/10/2021</h2>
-          <h2>Saídas: Largos do Rosário Terminal Ouro Verde</h2>
+          <h2>{{ convertDate(cityInfoData.data_ida) }}</h2>
+          <h2>Saídas: {{ cityInfoData.cidade_origem }}</h2>
         </div>
       </div>
     </div>
 
     <div class="city-info">
-      <div class="promotions">
+      <!-- <div class="promotions">
         <p class="promotions-title">PROMOÇÃO IMPERDÍVEL</p>
         <div class="promotions-discount">
           <p>50%</p>
           <p>OFF</p>
         </div>
-      </div>
+      </div> -->
       <div class="city-info-data">
         <div class="city-info-data-items">
           <div>
             <p class="city-info-data-label">Duração</p>
-            <p class="city-info-data-value">1 Dia</p>
+            <p class="city-info-data-value">{{ cityInfoData.duracao }} Dia</p>
           </div>
           <div>
             <p class="city-info-data-label">Data e horário da IDA</p>
-            <p class="city-info-data-value">27-DEZ-2020 - 08h00</p>
+            <p class="city-info-data-value">
+              {{ convertDate(cityInfoData.data_ida) }} - {{ cityInfoData.horario_saida }}
+            </p>
           </div>
           <div>
             <p class="city-info-data-label">Data e horário da VOLTA</p>
-            <p class="city-info-data-value">27-DEZ-2020 - 19h00</p>
+            <p class="city-info-data-value">{{ convertDate(cityInfoData.data_volta) }} - ?????</p>
           </div>
           <div>
             <p class="city-info-data-label">Ponto de Origem</p>
             <p class="city-info-data-value">
-              Largo do Pará - Campinas/SP Av. Aquidaban, 211 - Centro
+              {{ cityInfoData.ponto_origem }}
             </p>
           </div>
           <div>
             <p class="city-info-data-label">Ponto do Destino</p>
             <p class="city-info-data-value">
-              Estacionamento Basilica - Aparecida/SP Avenida Dr. Júlio Prestes - Ponte Alta
+              {{ cityInfoData.ponto_destino }}
             </p>
           </div>
           <div>
             <p class="city-info-data-label">Idade Mínima</p>
-            <p class="city-info-data-value">Sem Restrição</p>
+            <p class="city-info-data-value">{{ cityInfoData.idade_minima }}</p>
           </div>
           <div>
             <p class="city-info-data-label">Ingresso</p>
-            <p class="city-info-data-value">Não</p>
+            <p class="city-info-data-value">{{ cityInfoData.ingresso === '0' ? 'Não' : 'Sim' }}</p>
           </div>
           <div>
             <p class="city-info-data-label">Tipo de Veículo</p>
-            <p class="city-info-data-value">Ônibus</p>
+            <p class="city-info-data-value">{{ cityInfoData.veiculo }}</p>
           </div>
           <div class="w-100">
             <p class="city-info-data-label">Qtd. mín. de passagem para a excursão acontecer</p>
-            <p class="city-info-data-value">40 (Faltam 40 passagens)</p>
+            <p class="city-info-data-value">{{ cityInfoData.qte_pessoas_min }}</p>
           </div>
         </div>
         <div class="city-info-data-card">
-          <p class="city-info-data-card-value">R$ 30,00</p>
+          <p class="city-info-data-card-value">{{ convertToReal(cityInfoData.valor) }}</p>
           <button class="button-secondary city-info-data-card-button">
             <p class="city-info-data-card-button-text">é pra lá que eu vou</p>
             <p class="city-info-data-card-button-subtext">CLIQUE AQUI PARA RESERVAR</p>
@@ -76,51 +79,80 @@
         <div>
           <p class="city-info-add-data-label">Roteiro da Excursão</p>
           <p class="city-info-add-data-value">
-            Campinas a Aparecida do Norte com 1 parada de 30 minutos em postos da rede credenciada.
+            {{ cityInfoData.roteiro }}
           </p>
         </div>
         <div>
           <p class="city-info-add-data-label">Sobre o Transporte</p>
           <p class="city-info-add-data-value">
-            Ônibus Princesa D’oeste padrão executivo 46 lugares com ar, toalete, frigobar, wi-fi e
-            tomadas USB para carregar celular em cada banco.
+            {{ cityInfoData.sobre_transporte }}
           </p>
         </div>
         <div>
           <p class="city-info-add-data-label">Outros Pontos de Embarque</p>
           <p class="city-info-add-data-value">
-            Terminal Ouro Verde - R. Armando Frederico Renganeschi, 21 - Jardim Cristina,
-            Campinas/SP / Posto Jardim do Trevo - Av. Benedito de Campos, 193 - Jardim do Trevo,
-            Campinas - SP
+            {{ cityInfoData.outros_pontos_embarque }}
           </p>
         </div>
         <div>
           <p class="city-info-add-data-label">Política de Cancelamento</p>
           <p class="city-info-add-data-value">
-            Para receber um reembolso integral, cancele com até 5 dias de antecedência da excursão.
+            {{ cityInfoData.politicas_cancelamento }}
           </p>
         </div>
         <div>
           <p class="city-info-add-data-label">O que está Incluso</p>
           <p class="city-info-add-data-value">
-            Oferecemos água, refrigerante, bolacha e lanche de mortadela no serviço de bordo.
+            {{ cityInfoData.incluso }}
           </p>
         </div>
         <div>
           <p class="city-info-add-data-label">Outras Observações</p>
           <p class="city-info-add-data-value">
-            Meia tarifa. Para utilizar a meia tarifa será necessário comprovação do direito da meia
-            tarifa. ATENÇÃO: Verifique as condições de meia entrada clicando aqui.
+            {{ cityInfoData.outras_observacoes }}
           </p>
         </div>
       </div>
-      <city-info />
+      <city-info :data="cityInfoData" />
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useToastStore } from '@/stores/toastStore'
+import FetchService from '@/services/FetchService.js'
+import { useUtils } from '@/composables/useUtils'
 import CityInfo from '@/components/CityInfo.vue'
+
+const toastStore = useToastStore()
+
+const props = defineProps({
+  id: {
+    type: String,
+    required: true
+  }
+})
+
+const { convertDate, convertToReal } = useUtils()
+
+const cityInfoData = ref({})
+
+const fetchTravels = async () => {
+  try {
+    const { data } = await FetchService.getTravel(props.id)
+
+    cityInfoData.value = data
+  } catch (error) {
+    toastStore.setToastInfo({
+      showToast: true,
+      message: 'Erro inesperado',
+      kind: 'danger'
+    })
+  }
+}
+
+fetchTravels()
 </script>
 
 <style lang="scss" scoped>

@@ -19,5 +19,11 @@ export function useUtils() {
 
   const isMobileScreen = computed(() => windowWidth.value <= MOBILE_WIDTH)
 
-  return { convertToReal, isMobileScreen }
+  const convertDate = (value) => {
+    const date = new Date(value)
+
+    return date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'numeric', year: 'numeric' })
+  }
+
+  return { convertToReal, isMobileScreen, convertDate }
 }
