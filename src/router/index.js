@@ -6,14 +6,14 @@ const ExcursionInfo = () => import('@/views/ExcursionInfo.vue')
 const CityDetail = () => import('@/views/CityDetail.vue')
 const TheContact = () => import('@/views/TheContact.vue')
 const ExcursionistRegister = () => import('@/views/ExcursionistRegister.vue')
-const Destinies = () => import('@/views/Destinies.vue')
-const Login = () => import('@/views/Login.vue')
+const TheDestinies = () => import('@/views/TheDestinies.vue')
+const TheLogin = () => import('@/views/TheLogin.vue')
 const MyAccount = () => import('@/views/MyAccount.vue')
-const Profile = () => import('@/views/Profile.vue')
+const TheProfile = () => import('@/views/TheProfile.vue')
 const PrivacyPolicy = () => import('@/views/PrivacyPolicy.vue')
 const SecurityPoliciesStandards = () => import('@/views/SecurityPoliciesStandards.vue')
 const TermsConditions = () => import('@/views/TermsConditions.vue')
-const About = () => import('@/views/About.vue')
+const TheAbout = () => import('@/views/TheAbout.vue')
 const AllExcursions = () => import('@/views/AllExcursions.vue')
 
 const router = createRouter({
@@ -60,12 +60,12 @@ const router = createRouter({
     {
       path: '/destinos',
       name: 'destinies',
-      component: Destinies
+      component: TheDestinies
     },
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: TheLogin
     },
     {
       path: '/minha-conta',
@@ -75,7 +75,7 @@ const router = createRouter({
     {
       path: '/perfil',
       name: 'profile',
-      component: Profile
+      component: TheProfile
     },
     {
       path: '/politica-privacidade',
@@ -95,7 +95,7 @@ const router = createRouter({
     {
       path: '/sobre',
       name: 'about',
-      component: About
+      component: TheAbout
     },
     {
       path: '/todas-excursoes',

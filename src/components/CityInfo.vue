@@ -104,7 +104,7 @@ const toastStore = useToastStore()
 
 const { convertDate } = useUtils()
 
-const props = defineProps({
+defineProps({
   data: {
     type: Object,
     required: true

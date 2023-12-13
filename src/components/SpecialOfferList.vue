@@ -21,7 +21,7 @@ import { useUtils } from '@/composables/useUtils'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
-const props = defineProps({
+defineProps({
   travels: {
     type: Object,
     required: true

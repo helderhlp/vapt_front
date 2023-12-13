@@ -36,7 +36,7 @@ import { useUtils } from '@/composables/useUtils'
 import FetchService from '@/services/FetchService.js'
 import { useToastStore } from '@/stores/toastStore'
 import CityInfo from '@/components/CityInfo.vue'
-import MostPurchasedExcursions from '@/components/MostPurchasedExcursions.vue'
+// import MostPurchasedExcursions from '@/components/MostPurchasedExcursions.vue'
 import PromotionsRegisterForm from '@/components/PromotionsRegisterForm.vue'
 import EmptySearchForm from '@/components/EmptySearchForm.vue'
 

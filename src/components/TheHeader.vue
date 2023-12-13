@@ -80,15 +80,11 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import { useUtils } from '@/composables/useUtils'
 
-const router = useRouter()
-
 const { isMobileScreen } = useUtils()
 
-const city = ref('')
 const isDropdownOpen = ref(false)
 const isMenuOpen = ref(false)
 

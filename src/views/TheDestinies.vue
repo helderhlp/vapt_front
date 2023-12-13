@@ -30,7 +30,7 @@
 import { ref } from 'vue'
 import { useToastStore } from '@/stores/toastStore'
 import ExcursionsAndDestinations from '@/components/ExcursionsAndDestinations.vue'
-import MostPurchasedExcursions from '@/components/MostPurchasedExcursions.vue'
+// import MostPurchasedExcursions from '@/components/MostPurchasedExcursions.vue'
 import PromotionsRegisterForm from '@/components/PromotionsRegisterForm.vue'
 import EmptySearchForm from '@/components/EmptySearchForm.vue'
 import FetchService from '@/services/FetchService.js'

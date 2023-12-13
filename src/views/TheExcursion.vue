@@ -36,7 +36,7 @@ import FetchService from '@/services/FetchService.js'
 import EmptySearchForm from '@/components/EmptySearchForm.vue'
 import SpecialOfferList from '@/components/SpecialOfferList.vue'
 import SpecialOfferCard from '@/components/SpecialOfferCard.vue'
-import MostPurchasedExcursions from '@/components/MostPurchasedExcursions.vue'
+// import MostPurchasedExcursions from '@/components/MostPurchasedExcursions.vue'
 import PromotionsRegisterForm from '@/components/PromotionsRegisterForm.vue'
 
 import { useUtils } from '@/composables/useUtils'
