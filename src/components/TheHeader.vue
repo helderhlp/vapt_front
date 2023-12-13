@@ -99,10 +99,6 @@ const tooggleAccountDropdown = () => {
 const toogleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
-
-router.beforeResolve(() => {
-  toogleMenu()
-})
 </script>
 
 <style lang="scss" scoped>
