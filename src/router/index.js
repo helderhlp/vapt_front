@@ -15,6 +15,7 @@ const SecurityPoliciesStandards = () => import('@/views/SecurityPoliciesStandard
 const TermsConditions = () => import('@/views/TermsConditions.vue')
 const TheAbout = () => import('@/views/TheAbout.vue')
 const AllExcursions = () => import('@/views/AllExcursions.vue')
+const PageNotFound = () => import('@/views/PageNotFound.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -101,6 +102,15 @@ const router = createRouter({
       path: '/todas-excursoes',
       name: 'all-excursions',
       component: AllExcursions
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: { name: 'pageNotFound' }
+    },
+    {
+      path: '/404',
+      name: 'pageNotFound',
+      component: PageNotFound
     }
   ]
 })
