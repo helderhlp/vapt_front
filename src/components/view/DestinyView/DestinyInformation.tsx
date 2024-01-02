@@ -50,7 +50,7 @@ export function DestinyInformation() {
           <CarouselContent className="w-fit">
             <CarouselItem className="flex justify-center">
               <Image
-                src="https://vapt-front.vercel.app/assets/marco_ankosqui_teleferico_aparecida-Om4fBgsE.png"
+                src="/assets/marco_ankosqui_teleferico_aparecida.png"
                 width={465}
                 height={480}
                 alt="Marco Ankosqui Teleférico Aparecida"
@@ -58,7 +58,7 @@ export function DestinyInformation() {
             </CarouselItem>
             <CarouselItem className="flex justify-center">
               <Image
-                src="https://vapt-front.vercel.app/assets/marco_ankosqui_teleferico_aparecida-Om4fBgsE.png"
+                src="/assets/marco_ankosqui_teleferico_aparecida.png"
                 width={465}
                 height={480}
                 alt="Marco Ankosqui Teleférico Aparecida"
@@ -66,7 +66,7 @@ export function DestinyInformation() {
             </CarouselItem>
             <CarouselItem className="flex justify-center">
               <Image
-                src="https://vapt-front.vercel.app/assets/marco_ankosqui_teleferico_aparecida-Om4fBgsE.png"
+                src="/assets/marco_ankosqui_teleferico_aparecida.png"
                 width={465}
                 height={480}
                 alt="Marco Ankosqui Teleférico Aparecida"

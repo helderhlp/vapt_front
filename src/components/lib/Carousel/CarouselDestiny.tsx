@@ -20,7 +20,7 @@ export function CarouselDestiny() {
             >
               <button
                 className={`
-                min-h-[312px] bg-[url('https://vapt-front.vercel.app/assets/guaruja_destino_card-GJvRpE_i.png')] 
+                min-h-[312px] bg-[url('/assets/guaruja_destino_card.png')] 
                 bg-cover min-w-[240px] max-w-[320px] w-full flex p-5 text-start scale-110
               `}
               >

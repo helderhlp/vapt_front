@@ -11,8 +11,8 @@ export function CardOffer(props: Props) {
   return (
     <div
       className={twMerge([
-        'flex flex-col rounded-2xl w-full bg-white overflow-hidden border border-gray-300 min-w-[160px]',
-        props.width,
+        'flex flex-col rounded-2xl w-full bg-white overflow-hidden border border-gray-300',
+        props.width ? props.width : 'min-w-[200px]',
       ])}
     >
       <div className="flex flex-col justify-between min-h-[130px] bg-background-card-mobile bg-cover bg-center">

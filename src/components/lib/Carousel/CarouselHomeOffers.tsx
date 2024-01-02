@@ -37,7 +37,7 @@ export function CarouselHomeOffers() {
               key={index}
               className="flex px-1 w-full justify-center items-center sm:px-10 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
             >
-              <CardOffer />
+              <CardOffer width="min-w-[210px]" />
             </CarouselItem>
           ))}
         </CarouselContent>

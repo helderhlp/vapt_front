@@ -22,19 +22,19 @@ export function SessionCardEmphasis(props: Props) {
 
         <div className="gap-2 max-sm:hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
           {Array.from({ length: 6 }).map((_, index) => (
-            <CardOffer key={index} width="w-[180px]" />
+            <CardOffer key={index} width="w-full" />
           ))}
         </div>
 
         <div className="sm:hidden">
           <Carousel opts={{ loop: true }} className="w-full">
-            <CarouselContent className="w-full -ml-2">
+            <CarouselContent className="w-full-ml-2">
               {Array.from({ length: 20 }).map((_, index) => (
                 <CarouselItem
                   key={index}
                   className="flex w-full justify-center items-center basis-1/2 sm:px-10 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
                 >
-                  <CardOffer />
+                  <CardOffer width="min-w-[100px]" />
                 </CarouselItem>
               ))}
             </CarouselContent>
