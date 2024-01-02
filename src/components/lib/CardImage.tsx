@@ -6,7 +6,7 @@ export function CardImage() {
     <Link
       href={links.destinosId('123')}
       className={`
-        min-h-[280px] bg-[url('https://vapt-front.vercel.app/assets/guaruja_destino_card-GJvRpE_i.png')] 
+        min-h-[280px] bg-[url('/assets/guaruja_destino_card.png')] 
         bg-cover min-w-[240px] w-full flex p-5 hover:scale-105 text-start transition-transform
       `}
     >
