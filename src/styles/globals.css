@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.separator {
+  @apply flex gap-2 max-sm:flex-col;
+}
+*::placeholder {
+  font-style: italic;
+}
+
+.chevron {
+  width: 0;
+  height: 0;
+
+  @apply border-l-transparent border-l-[14px] border-r-transparent border-r-[14px] border-b-[12px] rotate-90;
+}

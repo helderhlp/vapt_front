@@ -1,0 +1,20 @@
+export const links = {
+  home: '/',
+  excusionId: (id: string) => `/excursao/${id}`,
+  destinos: '/destinos',
+  destinosId: (id: string) => `/destinos/${id}`,
+  destinosExcursoes: (id: string) => `/destinos/${id}/excursoes`,
+  excursionPurchaseChoice: (id: string) => `/excursao/${id}/purchase/choice`,
+  excursionPurchasePayment: (id: string) => `/excursao/${id}/purchase/payment`,
+  excursionPurchaseConfirmation: (id: string) =>
+    `/excursao/${id}/purchase/confirmation`,
+  contact: '/contato',
+  allExcursions: '/todas-excursoes',
+  login: '/login',
+  registerExcursionist: '/cadastro-excursionista',
+  policyAndSecurity: '/politicas-normas-seguranca',
+  termsAndConditions: '/termos-condicoes',
+  policyPrivacy: '/politica-privacidade',
+  covid: '/covid-19',
+  about: '/sobre',
+} as const

@@ -1,0 +1,28 @@
+{
+  "name": "Vaptvou",
+  "id": "/",
+  "short_name": "Vaptvou",
+  "theme_color": "#0522fd",
+  "background_color": "#FFFFFF",
+  "display": "fullscreen",
+  "scope": "/",
+  "start_url": "/",
+  "description": "",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/icons-pwa/icone_vaptvou_192g",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons-pwa/icone_vaptvou_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon"
+    }
+  ]
+}
