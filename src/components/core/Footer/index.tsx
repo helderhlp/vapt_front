@@ -5,7 +5,7 @@ import Link from 'next/link'
 export function Footer() {
   return (
     <div className="flex flex-col">
-      <div className="bg-primary-green-dark flex flex-col lg:flex-row gap-8 xl:gap-16 p-8 sm:p-14">
+      <div className="bg-primary-green-dark flex flex-col lg:flex-row sm:justify-center gap-8 xl:gap-16 p-8 sm:p-14">
         <div className="flex flex-col">
           <span className="font-bold text-white text-md mb-4">
             Institucional
