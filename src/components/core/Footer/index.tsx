@@ -12,7 +12,7 @@ export function Footer() {
 
           <span className="text-white text-sm underline flex flex-col">
             <Link href={links.about}>Sobre o Vaptvou</Link>
-            <a>Informações sobre o Coronavírus</a>
+            {/* <a>Informações sobre o Coronavírus</a> */}
           </span>
         </div>
 

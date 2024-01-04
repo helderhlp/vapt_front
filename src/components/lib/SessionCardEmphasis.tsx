@@ -5,7 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '../ui/carousel'
-import { CardOffer } from './CardOffer'
+import { CardExcursion } from './CardExcursion'
 import { Container } from './Container'
 
 interface Props {
@@ -22,7 +22,7 @@ export function SessionCardEmphasis(props: Props) {
 
         <div className="gap-2 max-sm:hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
           {Array.from({ length: 6 }).map((_, index) => (
-            <CardOffer key={index} width="w-full" />
+            <CardExcursion key={index} width="w-full" />
           ))}
         </div>
 
@@ -34,7 +34,7 @@ export function SessionCardEmphasis(props: Props) {
                   key={index}
                   className="flex w-full justify-center items-center basis-1/2 sm:px-10 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
                 >
-                  <CardOffer width="min-w-[100px]" />
+                  <CardExcursion width="min-w-[100px]" />
                 </CarouselItem>
               ))}
             </CarouselContent>

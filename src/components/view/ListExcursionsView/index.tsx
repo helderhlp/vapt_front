@@ -2,7 +2,7 @@ import { SessionCardEmphasis } from '@/components/lib/SessionCardEmphasis'
 import { TemplatePrimary } from '../TemplatePrimary'
 import { Container } from '@/components/lib/Container'
 import { Dropdown } from '@/components/lib/Dropdown'
-import { CardOffer } from '@/components/lib/CardOffer'
+import { CardExcursion } from '@/components/lib/CardExcursion'
 import { Newsletter } from '@/components/core/Newsletter'
 import { NotFoundExcursion } from '@/components/core/NotFoundExcursion'
 import {
@@ -40,7 +40,7 @@ export function ListExcursionsView() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 max-sm:hidden">
           {Array.from({ length: 8 }).map((_, index) => (
             <div className="flex justify-center" key={index}>
-              <CardOffer width="w-[250px]" />
+              <CardExcursion width="w-[250px]" />
             </div>
           ))}
         </div>
@@ -53,7 +53,7 @@ export function ListExcursionsView() {
                   key={index}
                   className="flex w-full justify-center items-center sm:px-10 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
                 >
-                  <CardOffer width="w-[250px]" />
+                  <CardExcursion width="w-[250px]" />
                 </CarouselItem>
               ))}
             </CarouselContent>

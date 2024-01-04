@@ -8,7 +8,7 @@ export function HeaderLinks() {
   return (
     <div className={twMerge(['bg-primary-blue-super-light p-2 w-full'])}>
       <div className="hidden md:flex justify-center gap-20 text-sm text-gray-600 underline">
-        <Link href={links.home}>Vapvou</Link>
+        <Link href={links.home}>Vaptvou</Link>
         <Link href={links.destinos}>Destinos</Link>
         <Link href={links.allExcursions}>Todas Excursões</Link>
         <Link href={links.contact}>Contato</Link>

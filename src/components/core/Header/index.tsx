@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { HeaderLinks } from './HeaderLinks'
 import { Button } from '@/components/lib/Button'
-import { User } from 'lucide-react'
+import { User, UserRoundCog } from 'lucide-react'
 import Link from 'next/link'
 import { WarningCovid } from './WarningCovid'
 import React from 'react'
@@ -10,16 +10,16 @@ import { links } from '@/config/links'
 import { twMerge } from 'tailwind-merge'
 
 export function Header() {
-  const [warningCovid, setWarningCovid] = React.useState(true)
+  // const [warningCovid, setWarningCovid] = React.useState(true)
   const [menuOpen, setMenuOpen] = React.useState(false)
 
   return (
     <div>
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {warningCovid && (
           <WarningCovid onClose={() => setWarningCovid(false)} />
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
       <HeaderLinks />
 
       <div className="p-4 py-8 bg-white justify-between flex items-center max-sm:gap-6 px-6 sm:px-32 flex-wrap">
@@ -34,7 +34,7 @@ export function Header() {
               className="flex text-xs gap-2 max-sm:w-full max-sm:justify-center"
               as="span"
             >
-              <User size={14} />
+              <UserRoundCog size={14} />
               <span className="whitespace-nowrap">
                 Cadastrar como excursionista
               </span>

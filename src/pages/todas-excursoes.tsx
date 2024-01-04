@@ -5,7 +5,7 @@ import {
   ImageTypeBackground,
 } from '@/components/lib/BackgroundTemplate'
 import { Button } from '@/components/lib/Button'
-import { CardOffer } from '@/components/lib/CardOffer'
+import { CardExcursion } from '@/components/lib/CardExcursion'
 import { Container } from '@/components/lib/Container'
 import { Dropdown } from '@/components/lib/Dropdown'
 import { Input } from '@/components/lib/Input'
@@ -71,7 +71,7 @@ export default function TodasExcursoes() {
         <Container className="mt-10 grid gris-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {Array.from({ length: 20 }).map((_, i) => (
             <div className="flex justify-center" key={i}>
-              <CardOffer />
+              <CardExcursion />
             </div>
           ))}
         </Container>

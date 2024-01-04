@@ -1,5 +1,5 @@
 import { links } from '@/config/links'
-import { BusFront } from 'lucide-react'
+import { BusFront, Share2 } from 'lucide-react'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 
@@ -7,7 +7,7 @@ interface Props {
   width?: string
 }
 
-export function CardOffer(props: Props) {
+export function CardExcursion(props: Props) {
   return (
     <div
       className={twMerge([
@@ -48,17 +48,14 @@ export function CardOffer(props: Props) {
           Rua Bartirá - Vila ipê, Campinas - SP
         </span>
 
-        <div className="flex justify-between mt-2 flex-col">
-          <span className="text-[10px] sm:text-xs text-gray-700">
-            A partir de
-          </span>
+        <div className="flex justify-between mt-4 items-center">
           <span className="text-lg sm:text-2xl font-bold text-gray-600">
             R$ 121,44
           </span>
-          {/* 
-          <button>
-            <Share2 className="text-primary-blue-dark" fill="" />
-          </button> */}
+
+          <button className="hover:opacity-70 transition-opacity">
+            <Share2 className="text-primary-blue-dark" fill="" size={18} />
+          </button>
         </div>
       </div>
     </div>
