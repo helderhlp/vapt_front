@@ -40,7 +40,7 @@ export function ListExcursionsView() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 max-sm:hidden">
           {Array.from({ length: 8 }).map((_, index) => (
             <div className="flex justify-center" key={index}>
-              <CardExcursion width="w-[250px]" />
+              <CardExcursion className="w-[250px]" />
             </div>
           ))}
         </div>
@@ -53,7 +53,7 @@ export function ListExcursionsView() {
                   key={index}
                   className="flex w-full justify-center items-center sm:px-10 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
                 >
-                  <CardExcursion width="w-[250px]" />
+                  <CardExcursion className="w-[250px]" />
                 </CarouselItem>
               ))}
             </CarouselContent>
