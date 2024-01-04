@@ -8,6 +8,7 @@ import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { links } from '@/config/links'
 import { twMerge } from 'tailwind-merge'
+import { PopoverLocalization } from '@/components/lib/Popover/PopoverLocalization'
 
 export function Header() {
   // const [warningCovid, setWarningCovid] = React.useState(true)
@@ -22,10 +23,14 @@ export function Header() {
       </AnimatePresence> */}
       <HeaderLinks />
 
-      <div className="p-4 py-8 bg-white justify-between flex items-center max-sm:gap-6 px-6 sm:px-32 flex-wrap">
-        <Link href={links.home}>
-          <Image src="/assets/logo.png" alt="logo" width={130} height={59} />
-        </Link>
+      <div className="p-4 py-8 bg-white justify-between flex items-center gap-2 gap-y-6 px-6 sm:px-32 flex-wrap">
+        <div className="flex gap-10">
+          <Link href={links.home}>
+            <Image src="/assets/logo.png" alt="logo" width={130} height={59} />
+          </Link>
+
+          <PopoverLocalization />
+        </div>
 
         <div className="flex gap-10 max-sm:w-full sm:ml-auto max-sm:justify-center">
           <Link href={links.registerExcursionist} className="max-sm:w-full">

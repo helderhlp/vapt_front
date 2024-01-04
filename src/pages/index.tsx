@@ -7,6 +7,12 @@ import { CarouselHomeOffers } from '@/components/lib/Carousel/CarouselHomeOffers
 import { Container } from '@/components/lib/Container'
 import { Input } from '@/components/lib/Input'
 import { SessionCardEmphasis } from '@/components/lib/SessionCardEmphasis'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 import { TemplatePrimary } from '@/components/view/TemplatePrimary'
 import { links } from '@/config/links'
 import Link from 'next/link'
@@ -16,7 +22,7 @@ export default function Home() {
     <TemplatePrimary>
       <CarouselHomeEmphasis />
 
-      <Container className="max-w-7xl max-sm:bg-primary-blue-super-light">
+      <Container className="max-w-7xl max-sm:bg-primary-blue-super-light max-sm:hidden">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-6 gap-2 sm:gap-6 my-4">
           <Input placeholder="Digite para onde você quer ir" />
           <Input placeholder="Digite de onde você quer sair" />
@@ -25,7 +31,32 @@ export default function Home() {
         </div>
       </Container>
 
-      <Container className="max-w-7xl px-6 mt-2 mb-6 bg-white pt-6 rounded-t-3xl">
+      <Accordion
+        type="single"
+        collapsible
+        className="w-full sm:hidden bg-primary-blue-super-light"
+      >
+        <AccordionItem value="cards" className="border-none">
+          <AccordionContent className="flex flex-col px-6">
+            <Container className="max-w-7xl max-sm:bg-primary-blue-super-light">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-6 gap-2 sm:gap-6 my-4">
+                <Input placeholder="Digite para onde você quer ir" />
+                <Input placeholder="Digite de onde você quer sair" />
+                <Input placeholder="Selecione o mês que voce quer" />
+                <Button>Procurar</Button>
+              </div>
+            </Container>
+          </AccordionContent>
+
+          <AccordionTrigger
+            className="w-full bg-primary-blue-super-light flex justify-center p-2"
+            classNameChevron="h-8 w-8"
+            isReverse
+          ></AccordionTrigger>
+        </AccordionItem>
+      </Accordion>
+
+      <Container className="max-w-7xl px-6 sm:mt-2 mb-6 bg-white pt-6 sm:rounded-t-3xl">
         <div className="flex justify-between items-center mb-4">
           <span className="font-bold text-xl text-gray-700">
             Ofertas Especiais

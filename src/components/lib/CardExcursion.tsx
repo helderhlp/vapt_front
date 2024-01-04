@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 
 interface Props {
-  width?: string
+  className?: string
 }
 
 export function CardExcursion(props: Props) {
@@ -12,7 +12,7 @@ export function CardExcursion(props: Props) {
     <div
       className={twMerge([
         'flex flex-col rounded-2xl w-full bg-white overflow-hidden border border-gray-300',
-        props.width ? props.width : 'min-w-[200px]',
+        props.className ? props.className : 'min-w-[200px]',
       ])}
     >
       <div className="flex flex-col justify-between min-h-[130px] bg-background-card-mobile bg-cover bg-center">
@@ -20,17 +20,25 @@ export function CardExcursion(props: Props) {
           24/04/2021
         </div>
 
-        <div className="flex justify-between">
-          <i className="text-white text-xs font-bold p-1 rounded-tr-lg bg-primary-gray px-3">
-            Novo
-          </i>
+        <div className="flex flex-col">
+          {/* <div className="flex justify-end">
+            <span className="text-white text-xs font-bold p-1 rounded-tl-2xl bg-red-500 px-3">
+              50% <br />
+              OFF
+            </span>
+          </div> */}
+          <div className="flex justify-between">
+            <i className="text-white text-xs font-bold p-1 rounded-tr-lg bg-primary-gray px-3">
+              Novo
+            </i>
 
-          <Link
-            href={links.excusionId('123')}
-            className="bg-primary-pink text-[10px] text-white uppercase px-2 py-1"
-          >
-            saiba mais
-          </Link>
+            <Link
+              href={links.excusionId('123')}
+              className="bg-primary-pink text-[10px] text-white uppercase px-2 py-1"
+            >
+              saiba mais
+            </Link>
+          </div>
         </div>
       </div>
 

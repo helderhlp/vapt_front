@@ -23,14 +23,16 @@ const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & {
     classNameChevron?: string
+    isReverse?: boolean
   }
->(({ className, children, classNameChevron, ...props }, ref) => (
+>(({ className, children, classNameChevron, isReverse, ...props }, ref) => (
   <AccordionPrimitive.Header className="flex">
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
         'flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180',
         className,
+        isReverse && '[&>svg]:rotate-120 [&[data-state=open]>svg]:rotate-180',
       )}
       {...props}
     >
@@ -39,6 +41,7 @@ const AccordionTrigger = React.forwardRef<
         className={twMerge([
           'h-4 w-4 shrink-0 transition-transform duration-200',
           classNameChevron,
+          // isReverse && 'rotate-120',
         ])}
       />
     </AccordionPrimitive.Trigger>
