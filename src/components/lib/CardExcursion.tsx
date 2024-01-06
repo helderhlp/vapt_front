@@ -42,19 +42,21 @@ export function CardExcursion(props: Props) {
         </div>
       </div>
 
-      <div className="p-3 flex flex-col gap-1">
+      <div className="p-3 flex flex-col gap-1 max-sm:min-h-[150px]">
         <div className="flex justify-between">
           <span className="text-sm font-semibold text-gray-700">Guarujá</span>
 
           <BusFront size={14} />
         </div>
 
-        <span className="max-sm:hidden text-xs sm:text-sm text-gray-800">
-          Litoral Sul Paulista
-        </span>
-        <span className="text-[10px] sm:text-xs text-gray-700 tracking-wide">
-          Rua Bartirá - Vila ipê, Campinas - SP
-        </span>
+        <div className="flex flex-col gap-1 flex-1">
+          <span className="max-sm:hidden text-xs sm:text-sm text-gray-800">
+            Litoral Sul Paulista
+          </span>
+          <span className="text-[10px] sm:text-xs text-gray-700 tracking-wide">
+            Rua Bartirá - Vila ipê, Campinas - SP
+          </span>
+        </div>
 
         <div className="flex justify-between mt-4 items-center">
           <span className="text-lg sm:text-2xl font-bold text-gray-600">

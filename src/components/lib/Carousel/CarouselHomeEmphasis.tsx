@@ -80,7 +80,7 @@ export function CarouselHomeEmphasis() {
                     </i>
                   </Link>
 
-                  <i className="text-sm text-white self-center">
+                  <i className="text-sm text-white self-center whitespace-nowrap">
                     Reservas até o dia 05 de Janeiro
                   </i>
                 </div>

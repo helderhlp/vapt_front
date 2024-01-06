@@ -23,9 +23,9 @@ export default function Home() {
       <CarouselHomeEmphasis />
 
       <Container className="max-w-7xl max-sm:bg-primary-blue-super-light max-sm:hidden">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-6 gap-2 sm:gap-6 my-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-6 gap-2 sm:gap-6 my-4">
           <Input placeholder="Digite para onde você quer ir" />
-          <Input placeholder="Digite de onde você quer sair" />
+          {/* <Input placeholder="você quer sair" /> */}
           <Input placeholder="Selecione o mês que voce quer" />
           <Button>Procurar</Button>
         </div>
@@ -39,9 +39,9 @@ export default function Home() {
         <AccordionItem value="cards" className="border-none">
           <AccordionContent className="flex flex-col px-6">
             <Container className="max-w-7xl max-sm:bg-primary-blue-super-light">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-6 gap-2 sm:gap-6 my-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-6 gap-2 sm:gap-6 my-4">
                 <Input placeholder="Digite para onde você quer ir" />
-                <Input placeholder="Digite de onde você quer sair" />
+                {/* <Input placeholder="Digite de onde você quer sair" /> */}
                 <Input placeholder="Selecione o mês que voce quer" />
                 <Button>Procurar</Button>
               </div>

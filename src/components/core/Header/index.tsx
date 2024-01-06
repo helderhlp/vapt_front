@@ -29,14 +29,14 @@ export function Header() {
             <Image src="/assets/logo.png" alt="logo" width={130} height={59} />
           </Link>
 
-          <PopoverLocalization />
+          {/* <PopoverLocalization /> */}
         </div>
 
-        <div className="flex gap-10 max-sm:w-full sm:ml-auto max-sm:justify-center">
+        <div className="flex gap-2 sm:gap-10 max-sm:w-full sm:ml-auto max-sm:justify-center">
           <Link href={links.registerExcursionist} className="max-sm:w-full">
             <Button
               variant="secondary"
-              className="flex text-xs gap-2 max-sm:w-full max-sm:justify-center"
+              className="flex text-[10px] sm:text-xs gap-2 max-sm:w-full max-sm:justify-center"
               as="span"
             >
               <UserRoundCog size={14} />
@@ -49,7 +49,7 @@ export function Header() {
           <Button
             variant="primary"
             className={twMerge([
-              'relative bg-primary-gray hover:bg-primary-gray flex text-xs gap-2 max-sm:hidden',
+              'relative bg-primary-gray hover:bg-primary-gray flex text-[10px] sm:text-xs gap-2 max-sm:justify-center',
               menuOpen && 'rounded-b-none',
             ])}
             onClick={() => setMenuOpen(!menuOpen)}

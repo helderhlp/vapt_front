@@ -32,9 +32,9 @@ export function SessionCardEmphasis(props: Props) {
               {Array.from({ length: 20 }).map((_, index) => (
                 <CarouselItem
                   key={index}
-                  className="flex w-full justify-center items-center basis-1/2 sm:px-10 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+                  className="flex w-full justify-center items-center basis-[70%] sm:px-10 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5"
                 >
-                  <CardExcursion className="min-w-[100px]" />
+                  <CardExcursion className="min-w-[120px]" />
                 </CarouselItem>
               ))}
             </CarouselContent>

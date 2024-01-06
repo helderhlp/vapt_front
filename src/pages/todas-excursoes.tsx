@@ -37,9 +37,9 @@ export default function TodasExcursoes() {
       />
 
       <Container className="mb-10 max-sm:hidden">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-lg:px-6 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 max-lg:px-6 gap-6">
           <Input placeholder="Digite para onde você quer ir" />
-          <Input placeholder="Digite de onde você quer sair" />
+          {/* <Input placeholder="Digite de onde você quer sair" /> */}
           <Input placeholder="Selecione o mês que você quer ir" />
           <Button>Procurar</Button>
         </div>
